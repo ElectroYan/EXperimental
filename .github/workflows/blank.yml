@@ -22,9 +22,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
-      # Runs a single command using the runners shell
-      - uses: vimtor/action-zip@v1
+      - uses: actions/checkout@anime
+      - name: Archive Release
+        uses: thedoctor0/zip-release@main
         with:
-          files: /
-          dest: test.osk
+          type: 'zip'
+          filename: 'EXperimental.osk'
+          exclusions: '*.git* /*node_modules/* .editorconfig'
